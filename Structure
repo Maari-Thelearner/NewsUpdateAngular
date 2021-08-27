@@ -1,0 +1,10 @@
+Structure
+	src
+		app
+			Appcomponent
+			HomeComponent (Display News , Categories , location)
+			BookmarkComponent
+			CovidUpdateComponent
+			AboutusComponent
+			LoginComponent
+			RegisterComponent
