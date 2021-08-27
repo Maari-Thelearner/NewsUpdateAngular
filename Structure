@@ -1,10 +1,18 @@
 Structure
 	src
 		app
-			Appcomponent
-			HomeComponent (Display News , Categories , location)
-			BookmarkComponent
-			CovidUpdateComponent
-			AboutusComponent
-			LoginComponent
-			RegisterComponent
+      Components
+        Appcomponent
+        HomeComponent (Display News , Categories , location)
+        BookmarkComponent
+        CovidUpdateComponent
+        AboutusComponent
+        LoginComponent
+        RegisterComponent
+      Modules
+        MaterialModule
+      Services
+        NewsorgApiService
+        FirebaseService
+    Environments
+      FirebaseInitialization
