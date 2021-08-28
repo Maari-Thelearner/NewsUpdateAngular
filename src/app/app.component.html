@@ -1,7 +1,56 @@
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
+<mat-toolbar class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+  </button>
+  NewsUpdate
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Maari</h4>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" [routerLink]="'home'">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+    </button>
+      <button mat-button class="menu-button" [routerLink]="'profile'">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="'bookmark'">
+          <mat-icon>bookmark</mat-icon>
+          <span>Bookmark</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="'covid-19'">
+          <mat-icon>coronavirus</mat-icon>
+          <span>CovidUpdate</span>
+      </button>
+
+    <button mat-button class="menu-button" [routerLink]="'settings'">
+      <mat-icon>settings_suggest</mat-icon>
+      <span>Settings</span>
+  </button>
+  <button mat-button class="menu-button" [routerLink]="'profile'">
+    <mat-icon>logout</mat-icon>
+    <span>Signout</span>
+  </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" [routerLink]="'aboutus'">
+        <mat-icon>contact_mail</mat-icon>
+        <span>Aboutus</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+         <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

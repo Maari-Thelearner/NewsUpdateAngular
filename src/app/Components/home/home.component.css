@@ -1,0 +1,11 @@
+
+.example-card {
+ max-height: 200px;
+  margin: 16px;
+ align-items: center;
+}
+
+
+.bookmark{
+  float: right;
+}

@@ -7,8 +7,9 @@ Structure
         BookmarkComponent
         CovidUpdateComponent
         AboutusComponent
-        LoginComponent
-        RegisterComponent
+        Authentication
+          LoginComponent
+          RegisterComponent
       Modules
         MaterialModule
       Services

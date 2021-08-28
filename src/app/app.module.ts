@@ -10,6 +10,10 @@ import { CovidupdateComponent } from './Components/covidupdate/covidupdate.compo
 import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
+import { MaterialmoduleModule } from './Modules/materialmodule/materialmodule.module';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { SettingsComponent } from './Components/settings/settings.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { RegisterComponent } from './Components/Authentication/register/register
     CovidupdateComponent,
     AboutusComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialmoduleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
