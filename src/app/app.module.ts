@@ -14,6 +14,14 @@ import { MaterialmoduleModule } from './Modules/materialmodule/materialmodule.mo
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountryComponent } from './Components/home/country/country.component';
+import { FiltercountryPipe } from './Components/home/country/filtercountry.pipe';
+import { CategoryComponent } from './Components/home/category/category.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,14 +33,23 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    CountryComponent,
+    FiltercountryPipe,
+    CategoryComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialmoduleModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,27 +1,48 @@
+<br>
 <div class="container">
-    <div class="row" *ngFor="let onenew of news">
+  <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-5">
+        <button mat-raised-button class="matButton" [routerLink]="'/countries'">COUNTRY : {{this.newsOrgService.Countryname | uppercase}}</button>
+      </div>
+      <div class="col-lg-5">
+        <button mat-raised-button class="matButton" [routerLink]="'/category'">CATEGORY : {{this.newsOrgService.NewsCatagory | uppercase}}</button>
+      </div>
+      <div class="col-lg-1">
+      </div>
+  </div>
+</div>
+<br>
+
+<br>
+<div class="container" *ngFor="let onenew of news">
+    <div class="row">
         <div class="col-lg-1">
         </div>
         <div class="col-lg-10">
           <mat-card class="example-card">
-            <mat-card-header>
+
+            <mat-card-header (click)="openurl(onenew.url)">
               <mat-card-title>{{onenew.title | titlecase}}</mat-card-title>
               <mat-card-subtitle>{{onenew.description| titlecase}}</mat-card-subtitle>
             </mat-card-header>
-            <br>
-            <img mat-card-image width="100%"  src="{{onenew.urlToImage == null ? 'https://upload.wikimedia.org/wikipedia/commons/7/75/No_image_available.png' : onenew.urlToImage}}" alt="Photo of a Shiba Inu">
-            <mat-card-content>
+            <br (click)="openurl(onenew.url)">
+            <img *ngIf="onenew.urlToImage != null" mat-card-image width="100%"  src="{{onenew.urlToImage}}" alt="ContentPhoto" (click)="openurl(onenew.url)">
+            <mat-card-content *ngIf="onenew.urlToImage != null" (click)="openurl(onenew.url)">
               <p>
                 {{onenew.content | titlecase}}
               </p>
             </mat-card-content>
-            <mat-card-actions class="bookmark">
-              <button mat-button><mat-icon>bookmark</mat-icon></button>
-            </mat-card-actions>
+            <mat-card-footer>
+              <button mat-button class="bookmark" (click)="bookmarkfn(onenew.title , onenew.description , onenew.content , onenew.url , onenew.urlToImage)"><u>Bookmark the above content </u><mat-icon>bookmark</mat-icon></button>
+            </mat-card-footer>
+
           </mat-card>
+
         </div>
         <div class="col-lg-1">
         </div>
-        <hr>
     </div>
+    <br> <br>
 </div>

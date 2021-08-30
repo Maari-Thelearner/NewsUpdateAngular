@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-9">
+      <h1 style="font-weight: bolder; font-family: 'Times New Roman', Times, serif;">CATEGORY</h1>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-9">
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+      <hr>
+      <p style="font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-size: medium;">
+        Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+      </p>
+      <br>
+      <div class="row" *ngIf="shoes.selectedOptions.selected[0]?.value != null">
+        <div class="col-md-2">
+          <button mat-raised-button (click)="Selected(shoes.selectedOptions.selected[0]?.value)">Confirm</button>
+        </div>
+
+        <div class="col-md-2">
+          <button mat-raised-button [routerLink]="'/home'">GoBack to Dashboard</button>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>

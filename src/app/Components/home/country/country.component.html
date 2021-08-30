@@ -1,0 +1,25 @@
+<br>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+          <input class="form-control" [(ngModel)]="searchCountry" placeholder="Search the Country"/>
+      </div>
+
+      <div class="col-lg-1"></div>
+  </div>
+</div>
+<br>
+<div class="container" *ngFor="let country of countries | filtercountry : searchCountry">
+  <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+          <mat-card (click)="SelectedCountry(country.code , country.name)">
+              <img src="{{country.flag}}" class="imgstyle"/>
+              <span class="namestyle">{{country.name}}</span>
+          </mat-card>
+      </div>
+      <div class="col-lg-1"></div>
+  </div>
+  <br>
+</div>

@@ -5,6 +5,8 @@ import { LoginComponent } from './Components/Authentication/login/login.componen
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { BookmarkComponent } from './Components/bookmark/bookmark.component';
 import { CovidupdateComponent } from './Components/covidupdate/covidupdate.component';
+import { CategoryComponent } from './Components/home/category/category.component';
+import { CountryComponent } from './Components/home/country/country.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { SettingsComponent } from './Components/settings/settings.component';
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path : 'login' , component : LoginComponent},
   {path : 'register' , component : RegisterComponent},
   {path: 'profile' , component : ProfileComponent},
+  {path: 'countries' , component : CountryComponent},
   {path : 'settings' , component : SettingsComponent},
+  {path : 'category' , component : CategoryComponent},
   {path : '**', redirectTo : '/home'}
 ];
 
