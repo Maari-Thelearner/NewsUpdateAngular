@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container h-100 d-flex justify-content-center">
+  <mat-card class="my-auto sizese">
+    <mat-card-title class="cardTitle" >LOGIN</mat-card-title>
+    <mat-card-title-group>Kindly login for furthur action</mat-card-title-group><br>
+    <mat-card-content>
+      <form>
+      <input type="email" class="form-control" placeholder="Email" #email required/><br><br>
+      <input type="password" class="form-control" placeholder="password" #password required/><br><br>
+      <button type="submit" mat-raised-button class="matButton" >Login</button>
+    </form>
+    </mat-card-content>
+    <mat-card-footer class="footer">
+      <a [routerLink]="'/register'" >Click here for Register</a>
+    </mat-card-footer>
+  </mat-card>
+  <!-- <div class="jumbotron my-auto">
+    <h1 class="display-3">Hello, world!</h1>
+  </div> -->
+</div>

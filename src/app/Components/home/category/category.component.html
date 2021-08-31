@@ -21,13 +21,17 @@
       </p>
       <br>
       <div class="row" *ngIf="shoes.selectedOptions.selected[0]?.value != null">
-        <div class="col-md-2">
-          <button mat-raised-button (click)="Selected(shoes.selectedOptions.selected[0]?.value)">Confirm</button>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+          <button mat-raised-button (click)="Selected(shoes.selectedOptions.selected[0]?.value)" class="matButton">Confirm</button>
         </div>
-
-        <div class="col-md-2">
-          <button mat-raised-button [routerLink]="'/home'">GoBack to Dashboard</button>
+        <div class="col-lg-3">
+            <hr>
         </div>
+        <div class="col-lg-3">
+          <button mat-raised-button [routerLink]="'/home'" class="matButton">GoBack to Dashboard</button>
+        </div>
+        <div class="col-lg-2"></div>
       </div>
 
 

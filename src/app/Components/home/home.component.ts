@@ -3,6 +3,7 @@ import { NewsorgapiserviceService } from 'src/app/Services/newsorgapiservice.ser
 
 
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -15,15 +16,22 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit  {
  newsapi : any;
  news : any = [];
- title = "Example Angular 10 Material Dialog";
-  constructor(public newsOrgService : NewsorgapiserviceService, private router : Router) { }
+
+  constructor(public newsOrgService : NewsorgapiserviceService, private router : Router , private spinner : NgxSpinnerService) { }
 
 
   ngOnInit(){
+    this.spinner.show(undefined,{
+      type : 'square-jelly-box',
+      size : 'large',
+      bdColor : '#002b5c',
+      color : "#074A9F",
+    });
   this.newsOrgService.getData().subscribe(
       data=>{
         this.newsapi = data
         this.news = this.newsapi.articles;
+        this.spinner.hide();
       }
     )
   }

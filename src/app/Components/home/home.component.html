@@ -1,21 +1,23 @@
+<ngx-spinner></ngx-spinner>
 <br>
 <div class="container">
   <div class="row">
-      <div class="col-lg-1">
+      <div class="col-lg-1 col-md-1">
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-4 col-md-4">
         <button mat-raised-button class="matButton" [routerLink]="'/countries'">COUNTRY : {{this.newsOrgService.Countryname | uppercase}}</button>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-2 col-md-2">
+          <hr>
+      </div>
+      <div class="col-lg-4  col-md-4">
         <button mat-raised-button class="matButton" [routerLink]="'/category'">CATEGORY : {{this.newsOrgService.NewsCatagory | uppercase}}</button>
       </div>
-      <div class="col-lg-1">
+      <div class="col-lg-1 col-md-1">
       </div>
   </div>
 </div>
-<br>
-
-<br>
+<br><br>
 <div class="container" *ngFor="let onenew of news">
     <div class="row">
         <div class="col-lg-1">

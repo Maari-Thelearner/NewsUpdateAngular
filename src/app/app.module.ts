@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountryComponent } from './Components/home/country/country.component';
 import { FiltercountryPipe } from './Components/home/country/filtercountry.pipe';
 import { CategoryComponent } from './Components/home/category/category.component';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
@@ -37,9 +39,6 @@ import { CategoryComponent } from './Components/home/category/category.component
     CountryComponent,
     FiltercountryPipe,
     CategoryComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -50,8 +49,12 @@ import { CategoryComponent } from './Components/home/category/category.component
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
