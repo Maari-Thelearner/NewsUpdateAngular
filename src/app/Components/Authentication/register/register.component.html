@@ -1,11 +1,26 @@
 <div class="container h-100 d-flex justify-content-center">
   <mat-card class="my-auto sizese">
     <mat-card-title class="cardTitle" >REGISTER</mat-card-title>
-    <mat-card-title-group>Kindly Register for furthur action</mat-card-title-group><br>
+    <!-- <mat-card-title-group>Kindly Register for furthur action</mat-card-title-group><br> --> <br>
     <mat-card-content>
-      <input type="email" class="form-control" #email placeholder="Email"/><br><br>
-      <input type="password" class="form-control" #password placeholder="password"/><br><br>
-      <button mat-raised-button class="matButton">Register</button>
+      <form class="signin-form" (submit)="SignUp(email.value,password.value,confirmpass.value)">
+        <div class="form-group">
+                <input type="text" class="form-control" placeholder="Useremail" required #email>
+        </div>
+        <div class="form-group">
+                <input  type="password" class="form-control" placeholder="Password" required #password>
+        </div>
+        <div class="form-group">
+            <input  type="password" class="form-control" placeholder="Confirm Password" required #confirmpass>
+        </div>
+        <div class="form-group ">
+                <button type="submit" class="form-control" mat-raised-button class="matButton">Sign Up</button>
+        </div>
+        <!-- <div class="text-danger">
+          <h3 class="warn-msg">{{this.auth.errormessage}}</h3>
+        </div> -->
+
+</form>
     </mat-card-content>
     <mat-card-footer class="footer">
       <a [routerLink]="'/login'" >Click here for login</a>

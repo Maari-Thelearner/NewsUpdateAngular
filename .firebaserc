@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "globaldigitalnewspaper": {
+      "hosting": {
+        "Newsupdate": [
+          "globaldigitalnewspaper"
+        ]
+      }
+    }
+  }
+}

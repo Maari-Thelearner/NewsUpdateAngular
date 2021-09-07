@@ -1,6 +1,6 @@
 mat-card{
-  width: 75%;
-  height: 50%;
+  width: 80%;
+  height: auto;
 }
 
 .cardTitle{
@@ -35,6 +35,7 @@ mat-card{
 .footer{
   float: right;
   margin-right: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 

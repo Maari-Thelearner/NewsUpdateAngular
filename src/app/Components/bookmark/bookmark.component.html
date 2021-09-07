@@ -1,1 +1,66 @@
-<p>bookmark works!</p>
+ <!-- <div *ngFor="let item of items | async">
+  <h1>{{item.content}}</h1>
+</div> -->
+
+<br>
+<div class="container">
+  <div class="row" *ngIf="this.buttonVisible">
+      <div class="col-lg-1 col-md-1">
+      </div>
+      <div class="col-lg-4 col-md-4">
+
+      </div>
+      <div class="col-lg-2 col-md-2">
+
+      </div>
+      <div class="col-lg-4  col-md-4">
+        <button mat-raised-button class="matButton" (click)="deleteALL()">Delete all</button>
+      </div>
+      <div class="col-lg-1 col-md-1">
+      </div>
+  </div>
+    <div class="row" *ngIf="this.notFoundVisible">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <h2>
+                    Bookmark Not Found</h2>
+                <div class="error-details">
+                    Sorry, you have not saved any bookmark in our page!
+                </div>
+                <div class="error-actions">
+                    <a href="http://www.jquery2dotnet.com" mat-raised-button class="matButton1"><span class="glyphicon glyphicon-home"></span>
+                       Go back to Dashboard </a>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+<br><br>
+<div class="container" *ngFor="let shirt of shirts | async">
+  <div *ngIf="shirt.emailid === this.email" class="row">
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-10">
+    <mat-card class="example-card">
+
+      <mat-card-header (click)="openurl(shirt.url)">
+        <mat-card-title>{{shirt.title | titlecase}}</mat-card-title>
+        <mat-card-subtitle>{{shirt.description| titlecase}}</mat-card-subtitle>
+      </mat-card-header>
+      <br (click)="openurl(shirt.url)">
+      <img *ngIf="shirt.urltoimage != null" mat-card-image width="100%"  src="{{shirt.urltoimage}}" alt="ContentPhoto" (click)="openurl(shirt .url)">
+      <mat-card-content *ngIf="shirt.urltoimage != null" (click)="openurl(shirt.url)">
+        <p>
+          {{shirt.content | titlecase}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-lg-1">
+  </div>
+
+  </div>
+  <br>
+</div>

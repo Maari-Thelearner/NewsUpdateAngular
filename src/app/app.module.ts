@@ -21,8 +21,12 @@ import { CategoryComponent } from './Components/home/category/category.component
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import {  AngularFirestoreModule } from '@angular/fire/firestore';
+import { FirebaseserviceService } from './Services/firebaseservice.service';
+import { NewsorgapiserviceService } from './Services/newsorgapiservice.service';
+import { RootcomponentComponent } from './Components/rootcomponent/rootcomponent.component';
+import { LogoutdialogComponent } from './Components/home/logoutdialog/logoutdialog.component';
 
 
 @NgModule({
@@ -39,6 +43,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     CountryComponent,
     FiltercountryPipe,
     CategoryComponent,
+    RootcomponentComponent,
+    LogoutdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +56,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
