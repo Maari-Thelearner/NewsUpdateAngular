@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
 
 @Component({
   selector: 'app-logoutdialog',
@@ -6,10 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logoutdialog.component.css']
 })
 export class LogoutdialogComponent implements OnInit {
+  dialogContent : any = "loading..";
+  dialogButton : any = "loading..";
+  loggedin : any = false;
+  constructor(private firebaseAuth : AngularFireAuth , private route : Router) { }
 
-  constructor() { }
+  ngOnInit(){
+    this.firebaseAuth.onAuthStateChanged((userState)=>{
+      if(userState){
+        //current user
+        this.loggedin = true;
+        this.dialogContent = "Are you sure you want to logout ?";
+        this.dialogButton = "Yes";
 
-  ngOnInit(): void {
+      }else{
+        //no current user
+        this.loggedin = false;
+        this.dialogContent = "If you have already a account please login else go with registeration(Google signin available)";
+        this.dialogButton = "Login";
+      }
+    })
+  }
+  logout(){
+    this.firebaseAuth.signOut().then(()=>{
+      this.route.navigate(["/home"]);
+    })
   }
 
 }

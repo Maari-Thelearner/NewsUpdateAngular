@@ -1,0 +1,8 @@
+<button *ngIf="user == 'Signout'" mat-button class="menu-button" (click)="logout()" >
+  <mat-icon>logout</mat-icon>
+  <span>{{user | titlecase}}</span>
+</button>
+<button *ngIf="user == 'Login/Register'" mat-button class="menu-button" (click)="logout()" >
+  <mat-icon>login</mat-icon>
+  <span>{{user | titlecase}}</span>
+</button>

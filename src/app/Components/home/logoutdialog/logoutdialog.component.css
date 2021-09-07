@@ -1,0 +1,8 @@
+.matButton{
+  background-color: #002b5c;
+  color: white;
+}
+
+mat-dialog-actions{
+  justify-content:space-around;
+}

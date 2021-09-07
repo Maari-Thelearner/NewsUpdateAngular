@@ -1,1 +1,18 @@
-<p>logoutdialog works!</p>
+<mat-dialog *ngIf="loggedin">
+  <mat-dialog-content>
+     {{dialogContent | titlecase}}
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button class="matButton" mat-dialog-close (click)="logout()">{{dialogButton | titlecase}}</button>
+    <button mat-dialog-close mat-raised-button class="matButton">No</button>
+  </mat-dialog-actions>
+</mat-dialog>
+<mat-dialog *ngIf="!loggedin">
+  <mat-dialog-content>
+     {{dialogContent | titlecase}}
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button class="matButton" mat-dialog-close [routerLink]="'/login'">{{dialogButton | titlecase}}</button>
+    <button mat-dialog-close mat-raised-button class="matButton">No</button>
+  </mat-dialog-actions>
+</mat-dialog>

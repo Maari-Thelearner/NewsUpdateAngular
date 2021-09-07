@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
-import { RootcomponentComponent } from '../../rootcomponent/rootcomponent.component';
+import { SignoutComponent } from '../../home/signout/signout.component';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +11,7 @@ import { RootcomponentComponent } from '../../rootcomponent/rootcomponent.compon
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public auth: FirebaseserviceService,public router : Router,private _snackBar: MatSnackBar , private users : RootcomponentComponent) { }
+  constructor(public auth: FirebaseserviceService,public router : Router,private _snackBar: MatSnackBar , private users : SignoutComponent) { }
 
   ngOnInit(): void {
     this.auth.errormessage=null;

@@ -27,6 +27,7 @@ import { FirebaseserviceService } from './Services/firebaseservice.service';
 import { NewsorgapiserviceService } from './Services/newsorgapiservice.service';
 import { RootcomponentComponent } from './Components/rootcomponent/rootcomponent.component';
 import { LogoutdialogComponent } from './Components/home/logoutdialog/logoutdialog.component';
+import { SignoutComponent } from './Components/home/signout/signout.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { LogoutdialogComponent } from './Components/home/logoutdialog/logoutdial
     FiltercountryPipe,
     CategoryComponent,
     RootcomponentComponent,
-    LogoutdialogComponent
+    LogoutdialogComponent,
+    SignoutComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { LogoutdialogComponent } from './Components/home/logoutdialog/logoutdial
     AngularFirestoreModule,
 
   ],
-  providers: [AppComponent],
+  providers: [AppComponent , RootcomponentComponent , SignoutComponent , LoginComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

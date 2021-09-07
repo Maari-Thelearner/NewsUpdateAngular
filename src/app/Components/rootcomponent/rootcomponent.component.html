@@ -16,7 +16,7 @@
       <!-- <img class="avatar mat-elevation-z8" src="{{userDp}}" />
 
       <h4 class="name">Maari</h4> -->
-      <app-profile></app-profile>
+ <app-profile></app-profile>
       <mat-divider></mat-divider>
       <button mat-button class="menu-button" [routerLink]="'home'">
         <mat-icon>dashboard</mat-icon>
@@ -39,14 +39,15 @@
       <mat-icon>settings_suggest</mat-icon>
       <span>Settings</span>
   </button> -->
-  <button *ngIf="user == 'Signout'" mat-button class="menu-button" (click)="logout()" >
+  <!-- <button *ngIf="user == 'Signout'" mat-button class="menu-button" (click)="logout()" >
     <mat-icon>logout</mat-icon>
     <span>{{user | titlecase}}</span>
   </button>
   <button *ngIf="user == 'Login/Register'" mat-button class="menu-button" (click)="logout()" >
     <mat-icon>login</mat-icon>
     <span>{{user | titlecase}}</span>
-  </button>
+  </button> -->
+  <app-signout></app-signout>
 
       <mat-divider></mat-divider>
       <!-- <button mat-button class="menu-button" [routerLink]="'aboutus'">

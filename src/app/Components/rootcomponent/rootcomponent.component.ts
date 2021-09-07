@@ -17,19 +17,28 @@ import { LogoutdialogComponent } from '../home/logoutdialog/logoutdialog.compone
 export class RootcomponentComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  user : string = '';
-
+  // user : any = 'loading';
   userDp : string = 'https://source.unsplash.com/c_GmwfHBDzk/200x200';
   constructor(private observer: BreakpointObserver , public logoutService : FirebaseserviceService , public dialog : MatDialog , private firebaseAuth : AngularFireAuth) { }
 
   ngOnInit() {
 
     console.log('hello');
-    if(this.logoutService.authState != null){
-      this.user = 'Signout'
-    }else{
-      this.user = 'Login/Register'
-    }
+    // if(this.logoutService.authState != null){
+    //   this.user = 'Signout'
+    // }else{
+    //   this.user = 'Login/Register'
+    // }
+// this.firebaseAuth.onAuthStateChanged((userState)=>{
+//   if(userState){
+//     //current user
+//     this.user = "Signout";
+//   }else{
+//     //No current user
+//     this.user = "Login/Register";
+//   }
+// })
+
   }
 
   ngAfterViewInit() {
@@ -46,8 +55,8 @@ export class RootcomponentComponent implements OnInit {
         }
       });
   }
-  logout(){
-this.dialog.open(LogoutdialogComponent);
-}
+//   logout(){
+// this.dialog.open(LogoutdialogComponent);
+// }
 
 }

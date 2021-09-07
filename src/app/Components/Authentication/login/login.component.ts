@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
+import { SignoutComponent } from '../../home/signout/signout.component';
 import { RootcomponentComponent } from '../../rootcomponent/rootcomponent.component';
 
 @Component({
@@ -12,7 +13,7 @@ import { RootcomponentComponent } from '../../rootcomponent/rootcomponent.compon
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public firebaseAuth:FirebaseserviceService,private router : Router,private _snackBar: MatSnackBar , private users : RootcomponentComponent) { }
+  constructor(public firebaseAuth:FirebaseserviceService,private router : Router,private _snackBar: MatSnackBar , private users : SignoutComponent) { }
 
   ngOnInit(): void {
     this.firebaseAuth.errormessage = null;
