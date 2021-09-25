@@ -1,0 +1,37 @@
+<div class="container h-100 d-flex justify-content-center">
+  <mat-card class="my-auto sizese">
+    <!-- <h1>Sign In with Your Phone Number</h1> -->
+    <mat-card-header>
+      <mat-card-title>
+        Login using your phone
+      </mat-card-title>
+      <mat-card-subtitle>
+        Phone authentication work based on One-Time-Password method
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Select Your country code (Example for india - +91)" [matAutocomplete]="auto" [(ngModel)]="searchCountrycode" required>
+        <mat-autocomplete #auto = "matAutocomplete">
+          <mat-option *ngFor="let option of countryCode | filtercountrycode : searchCountrycode" [value]="option.code + ' is a country code of '+ option.name" (click)="setCountryCode(option.code)">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Enter your 10 Digit Phone number" maxlength="10" [(ngModel)]="phoneNumber.PhoneNo" required>
+</div>
+<div id="recaptcha-container"></div>
+<button mat-raised-button class="form-control matButtonSMS" (click)="sendLoginCode()">SMS Text Login Code</button>
+<div *ngIf="windowRef.confirmationResult">
+  <hr>
+
+  <input type="text" class="form-control" placeholder="Enter the Verification Code Here" name="code" [(ngModel)]="verificationCode" required>
+<br>
+  <button mat-raised-button class="form-control matButtonSMS" (click)="verifyLoginCode()">Verify</button>
+</div>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

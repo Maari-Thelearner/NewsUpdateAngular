@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
 
 @Component({
   selector: 'app-logoutdialog',

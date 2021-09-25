@@ -42,10 +42,9 @@ export class HomeComponent implements OnInit  {
 
   //for Firebase
   bookmarkfn(title : string , description : string , url : any , urltoimage : any , content : string){
-      // console.log(title+"\n"+description+"\n"+url+"\n"+urltoimage+"\n"+content);
-      if(this.authService.authState.email != null){
+      if(this.authService.authState.email != null || this.authService.authState.uid){
         this.fireStore.collection('bookmark').add({
-          'emailid' : this.authService.authState.email,
+          'uid' : this.authService.authState.uid,
         'title' : title,
         'description' : description,
         'url' : url,

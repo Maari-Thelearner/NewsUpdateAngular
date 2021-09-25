@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { NewsorgapiserviceService } from 'src/app/Services/newsorgapiservice.service';
 
@@ -7,13 +7,12 @@ import { NewsorgapiserviceService } from 'src/app/Services/newsorgapiservice.ser
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent {
   warning : string = '';
   typesOfShoes: string[] = ['general', 'entertainment', 'sports', 'business', 'health' , 'science' , 'technology'];
   constructor(private router : Router , private service : NewsorgapiserviceService) { }
 
-  ngOnInit() {
-  }
+
 
   Selected(value : string){
 

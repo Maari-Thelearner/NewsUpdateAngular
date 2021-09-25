@@ -1,9 +1,3 @@
-
-/* .example-card {
- max-height: 200px;
-  margin: 16px;
- align-items: center;
-} */
 .example-card{
   cursor: pointer;
 }
@@ -11,13 +5,6 @@
 .bookmark{
   float: right;
 }
-
-
-
-/* .content{
-  padding: 16px;
-} */
-
 .matButton {
   width: 100%;
   background-color: #002b5c;

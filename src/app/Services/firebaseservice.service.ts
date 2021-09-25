@@ -41,6 +41,14 @@ export class FirebaseserviceService {
       this.errormessage = error['message']
     });
   }
+
+  async loginwithfacebook(){
+    await this.firebaseAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(res=>{
+      this.route.navigate(['/home'])
+    }).catch(error=> {
+      this.errormessage = error['message']
+    });
+  }
 //Service for Overall Logout of Authentication by Firebase
  async logout(){
   await  this.firebaseAuth.signOut().then(()=>{

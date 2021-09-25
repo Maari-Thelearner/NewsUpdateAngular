@@ -10,8 +10,13 @@ mat-card{
 }
 
 .matButton {
-  width: 100%;
+  width: 90%;
   background-color: #002b5c;
+  color: white;
+}
+
+.matButton:hover{
+  background-color:#074A9F;
   color: white;
 }
 

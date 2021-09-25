@@ -1,20 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
-
-export interface Shirt {
-content : string;
-description : string;
-title : string;
-url : string;
-urltoimage : string;
-emailid : string;
-}
-export interface ShirtId extends Shirt { id: string; }
-
 
 @Component({
   selector: 'app-bookmark',
@@ -22,54 +9,61 @@ export interface ShirtId extends Shirt { id: string; }
   styleUrls: ['./bookmark.component.css']
 })
 export class BookmarkComponent implements OnInit {
-  private shirtCollection !: AngularFirestoreCollection<Shirt>;
-  shirts!: Observable<ShirtId[]>;
-  email : string = this.fireAuthService.authState.email;
-  value : any = [];
+  uid : any = 'loading';
+  value : any[] = [];
   buttonVisible : boolean = false;
-  notFoundVisible : boolean = false;
-  constructor(private fireStore : AngularFirestore,private fireAuthService : FirebaseserviceService , private router : Router) { }
+  notFoundVisible : boolean = true;
+  panelOpenState = false;
+
+  constructor(private fireStore : AngularFirestore, private router : Router , private firebaseAuth : AngularFireAuth) { }
 
   ngOnInit() : void {
-   this.getData();
+    this.firebaseAuth.onAuthStateChanged((userState)=>{
+      if(userState){
+        this.uid = userState.uid;
+      }
+    }).then(()=>{
+      this.getData();
+    })
+
   }
 
-
+  delete(contentId : any){
+    this.fireStore.collection('bookmark').doc(contentId).delete().then(()=>{
+      this.router.navigate(['home'])
+    });
+  }
 
   openurl(url : string){
     window.open(url);
   }
 
   getData(){
-    this.shirtCollection = this.fireStore.collection('bookmark');
-    this.shirts = this.shirtCollection.snapshotChanges().pipe(
-      map(actions=>actions.map(a=>{
-          const data = a.payload.doc.data() as Shirt;
-          const id = a.payload.doc.id;
-          if(data.emailid != this.email){
-            this.buttonVisible = false;
-            this.notFoundVisible = true;
-          }else{
-            this.buttonVisible = true;
-            this.notFoundVisible = false;
-          }
-          return { id, ...data };
-      }
-      ))
-    )
+    this.fireStore.collection("bookmark").get().subscribe((values)=>{
+      values.docs.forEach((doc)=>{
+        let docemail = JSON.parse(JSON.stringify(doc.data()));
+       if(docemail.uid == this.uid){
+        this.value.push({
+          'key' : doc.id,
+          'value' : doc.data()
+        });
+        this.buttonVisible = true;
+        this.notFoundVisible = false;
+       }
+      })
+    })
   }
 
   deleteALL(){
-    this.fireStore.collection('bookmark').ref.where('emailid' , '==' , this.email)
+    this.fireStore.collection('bookmark').ref.where('uid' , '==' , this.uid)
     .get().then((querySnapshot)=>{
       querySnapshot.forEach((doc)=>{
         doc.ref.delete();
       })
     }).then(()=>{
+      this.value = [];
+    }).then(()=>{
       this.router.navigateByUrl('/home');
     })
   }
-
-
-
 }

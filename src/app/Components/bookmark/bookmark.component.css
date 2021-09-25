@@ -22,3 +22,20 @@ body { background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAA
 a:hover{
   text-decoration: none;
 }
+
+
+.deleteButton{
+  float: inline-end;
+}
+
+.deleteExpansion{
+  background-color: #002b5c;
+  color: white;
+}
+mat-panel-title{
+  color: white;
+}
+
+.deleteButton{
+  background-color: red;
+}

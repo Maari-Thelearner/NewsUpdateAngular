@@ -1,45 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service';
-
-import { ProfileComponent } from '../profile/profile.component';
-import { LogoutdialogComponent } from '../home/logoutdialog/logoutdialog.component';
-
 @Component({
   selector: 'app-rootcomponent',
   templateUrl: './rootcomponent.component.html',
   styleUrls: ['./rootcomponent.component.css']
 })
-export class RootcomponentComponent implements OnInit {
+export class RootcomponentComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  // user : any = 'loading';
   userDp : string = 'https://source.unsplash.com/c_GmwfHBDzk/200x200';
   constructor(private observer: BreakpointObserver , public logoutService : FirebaseserviceService , public dialog : MatDialog , private firebaseAuth : AngularFireAuth) { }
-
-  ngOnInit() {
-
-    console.log('hello');
-    // if(this.logoutService.authState != null){
-    //   this.user = 'Signout'
-    // }else{
-    //   this.user = 'Login/Register'
-    // }
-// this.firebaseAuth.onAuthStateChanged((userState)=>{
-//   if(userState){
-//     //current user
-//     this.user = "Signout";
-//   }else{
-//     //No current user
-//     this.user = "Login/Register";
-//   }
-// })
-
-  }
 
   ngAfterViewInit() {
     this.observer
@@ -55,8 +30,4 @@ export class RootcomponentComponent implements OnInit {
         }
       });
   }
-//   logout(){
-// this.dialog.open(LogoutdialogComponent);
-// }
-
 }

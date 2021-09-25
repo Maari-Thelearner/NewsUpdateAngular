@@ -1,7 +1,65 @@
- <!-- <div *ngFor="let item of items | async">
-  <h1>{{item.content}}</h1>
-</div> -->
+<br><br>
+<div class="container" *ngFor="let item of value">
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10">
+    <mat-card class="example-card">
 
+      <mat-card-header (click)="openurl(item['value']['url'])">
+        <mat-card-title>{{item['value']['title'] | titlecase}}</mat-card-title>
+        <mat-card-subtitle>{{item['value']['description']| titlecase}}</mat-card-subtitle>
+      </mat-card-header>
+      <br (click)="openurl(item['value']['url'])">
+      <img *ngIf="item['value']['urltoimage'] != null" mat-card-image width="100%"  src="{{item['value']['urltoimage']}}" alt="ContentPhoto" (click)="openurl(item['value']['url'])">
+      <mat-card-content *ngIf="item['value']['urltoimage'] != null" (click)="openurl(item['value']['url'])">
+        <p>
+          {{item['value']['content'] | titlecase}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false" class="deleteExpansion">
+          <mat-expansion-panel-header>
+          <mat-panel-title>
+             Delete
+          </mat-panel-title>
+
+          </mat-expansion-panel-header>
+            <p>Are you sure want to delete the content ?</p> <button mat-raised-button color="accent" class="deleteButton" (click)="delete(item['key'])">Yes Delete</button>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="col-lg-1">
+  </div>
+
+  </div>
+  <br>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="this.notFoundVisible">
+    <div class="col-md-12">
+        <div class="error-template">
+            <h1>
+                Oops!</h1>
+            <h2>
+                Bookmark Not Found</h2>
+            <div class="error-details">
+                Sorry, you have not saved any bookmark in our page!
+            </div>
+            <div class="error-actions">
+                <a href="http://www.jquery2dotnet.com" mat-raised-button class="matButton1"><span class="glyphicon glyphicon-home"></span>
+                   Go back to Dashboard </a>
+            </div>
+        </div>
+  </div>
+  </div>
+</div>
 <br>
 <div class="container">
   <div class="row" *ngIf="this.buttonVisible">
@@ -14,53 +72,27 @@
 
       </div>
       <div class="col-lg-4  col-md-4">
-        <button mat-raised-button class="matButton" (click)="deleteALL()">Delete all</button>
+
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false" class="deleteExpansion">
+          <mat-expansion-panel-header>
+          <mat-panel-title>
+             Delete All
+          </mat-panel-title>
+
+          </mat-expansion-panel-header>
+            <p>Are you sure want to delete all ?</p> <button mat-raised-button class="matButton" (click)="deleteALL()">Yes Delete all</button>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
       <div class="col-lg-1 col-md-1">
       </div>
-  </div>
-    <div class="row" *ngIf="this.notFoundVisible">
-        <div class="col-md-12">
-            <div class="error-template">
-                <h1>
-                    Oops!</h1>
-                <h2>
-                    Bookmark Not Found</h2>
-                <div class="error-details">
-                    Sorry, you have not saved any bookmark in our page!
-                </div>
-                <div class="error-actions">
-                    <a href="http://www.jquery2dotnet.com" mat-raised-button class="matButton1"><span class="glyphicon glyphicon-home"></span>
-                       Go back to Dashboard </a>
-                </div>
-            </div>
     </div>
-</div>
-</div>
-<br><br>
-<div class="container" *ngFor="let shirt of shirts | async">
-  <div *ngIf="shirt.emailid === this.email" class="row">
-  <div class="col-lg-1">
-  </div>
-  <div class="col-lg-10">
-    <mat-card class="example-card">
+</div> <br>
 
-      <mat-card-header (click)="openurl(shirt.url)">
-        <mat-card-title>{{shirt.title | titlecase}}</mat-card-title>
-        <mat-card-subtitle>{{shirt.description| titlecase}}</mat-card-subtitle>
-      </mat-card-header>
-      <br (click)="openurl(shirt.url)">
-      <img *ngIf="shirt.urltoimage != null" mat-card-image width="100%"  src="{{shirt.urltoimage}}" alt="ContentPhoto" (click)="openurl(shirt .url)">
-      <mat-card-content *ngIf="shirt.urltoimage != null" (click)="openurl(shirt.url)">
-        <p>
-          {{shirt.content | titlecase}}
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-lg-1">
-  </div>
 
-  </div>
-  <br>
-</div>
+ <!-- <div *ngFor="let item of value; let i = index">
+   <p>{{i}},{{item["key"]}},{{item["value"]["emailid"]}}</p>
+   <button mat-button (click)="delete(item['key'])">Delete</button>
+ </div> -->

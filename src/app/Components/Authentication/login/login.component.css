@@ -9,10 +9,46 @@ mat-card{
     font-style: bold;
 }
 
-.matButton {
-  width: 100%;
+.matButtonSignIn {
+  width: 90%;
   background-color: #002b5c;
   color: white;
+}
+.matButtonSignIn:hover{
+  background-color:#074A9F;
+  color: white;
+}
+
+.matButtonPhoneAuth{
+  width: 100%;
+  background-color: #002b5c;
+  color : white
+}
+
+.matButtonPhoneAuth:hover{
+  background-color: #074A9F;
+  color: white;
+}
+
+.matButtonGoogle{
+  width: 100%;
+  background-color: rgb(2,0,36);
+  background: linear-gradient(-120deg,#4285f4, #34A853,  #FBBC05 , #EA4335);
+}
+
+.matButtonGoogle:hover{
+width: 100%;
+background: linear-gradient(-120deg ,#EA4335,#FBBC05 ,#34A853 , #4285f4);
+}
+
+.matButtonFacebook{
+width: 100%;
+background: linear-gradient(120deg ,#074A9F,#FFFFFF);
+}
+
+.matButtonFacebook:hover{
+  width: 100%;
+  background: linear-gradient(120deg ,#FFFFFF,#074A9F);
 }
 
 .form-control{

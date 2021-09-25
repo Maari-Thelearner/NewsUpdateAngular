@@ -8,7 +8,6 @@ import { FirebaseserviceService } from 'src/app/Services/firebaseservice.service
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-// userDp : any = 'https://source.unsplash.com/c_GmwfHBDzk/200x200';
 userDp : any = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg";
 userName : any = 'loading';
   constructor(private firebaseAuth : AngularFireAuth , private firebaseService : FirebaseserviceService) { }
