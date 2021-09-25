@@ -5,8 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './Components/home/home.component';
 import { BookmarkComponent } from './Components/bookmark/bookmark.component';
-
-import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { MaterialmoduleModule } from './Modules/materialmodule/materialmodule.module';
@@ -37,7 +35,6 @@ import { PhoneauthComponent } from './Components/Authentication/phoneauth/phonea
     AppComponent,
     HomeComponent,
     BookmarkComponent,
-    AboutusComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,

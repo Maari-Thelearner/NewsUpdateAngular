@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { LoginComponent } from './Components/Authentication/login/login.component';
 import { RegisterComponent } from './Components/Authentication/register/register.component';
 import { BookmarkComponent } from './Components/bookmark/bookmark.component';
@@ -21,7 +20,7 @@ const routes: Routes = [
   {path : '' , component : HomeComponent },
   {path : 'bookmark' , component :BookmarkComponent, canActivate : [AngularFireAuthGuard] , data: { authGuardPipe: redirectUnauthorizedToLogin,}},
 
-  {path : 'aboutus' , component : AboutusComponent, canActivate : [AngularFireAuthGuard] , data: { authGuardPipe: redirectUnauthorizedToLogin,}},
+
   {path : 'login' , component : LoginComponent, canActivate : [AngularFireAuthGuard] , data: { authGuardPipe: redirectLoggedInToConsole }},
   {path : 'register' , component : RegisterComponent, canActivate : [AngularFireAuthGuard] , data: { authGuardPipe: redirectLoggedInToConsole }},
   {path : 'phone-auth' , component : PhoneauthComponent, canActivate : [AngularFireAuthGuard] , data: { authGuardPipe: redirectLoggedInToConsole }},
